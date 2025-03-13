@@ -30,7 +30,7 @@ function drawSnake() {
   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
   snake.forEach((block, index) => {
-    ctx.fillStyle = "#32CD32";
+    ctx.fillStyle = "#44bd34";
     ctx.fillRect(block.x, block.y, blockSize, blockSize);    
   });  
 }
