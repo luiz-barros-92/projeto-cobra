@@ -27,12 +27,22 @@ let food = {
 let score = 0;
 
 function drawSnake() {
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
   snake.forEach((block, index) => {
     ctx.fillStyle = "#44bd34";
     ctx.fillRect(block.x, block.y, blockSize, blockSize);    
   });  
 }
 
-drawSnake();
+function drawFood() {
+  ctx.fillStyle = "#44bd34";
+  ctx.fillRect(food.x, food.y, blockSize, blockSize);
+}
+
+function gameLoop() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  drawSnake();
+  drawFood();
+}
+
+gameLoop();
+
