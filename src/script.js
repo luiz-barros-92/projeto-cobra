@@ -38,9 +38,51 @@ function drawFood() {
   ctx.fillRect(food.x, food.y, blockSize, blockSize);
 }
 
+function foodEat() {
+  if (snake[0].x === food.x && snake[0].y === food.y) {
+    food.x = Math.floor (Math.random() * (canvasWidth / blockSize - 2)) * blockSize + blockSize;
+    food.y = Math.floor (Math.random() * (canvasHeight / blockSize - 2)) * blockSize + blockSize;
+
+    score++;
+    console.log("Score:", score);
+
+    return true;
+  }
+  return false;
+}
+
+function moveSnake() {
+  let head = { x: snake[0].x, y: snake[0].y };
+
+  switch (direction) {
+    case "up":
+        head.y -= blockSize;
+        break;
+    case "down":
+        head.y += blockSize;
+        break;
+    case "left":
+        head.x -= blockSize;
+        break;
+    case "right":
+        head.x += blockSize;
+        break;
+  }
+
+  snake.unshift(head);
+
+  if (!foodEat()) {
+    snake.pop();
+  }
+}
+
 function gameLoop() {
   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+  moveSnake();
+
   drawSnake();
+  
   drawFood();
 }
 
