@@ -44,12 +44,33 @@ function foodEat() {
     food.y = Math.floor (Math.random() * (canvasHeight / blockSize - 2)) * blockSize + blockSize;
 
     score++;
-    console.log("Score:", score);
+    console.log("Score: ", score);
 
     return true;
   }
   return false;
 }
+
+document.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "ArrowUp":
+    case "w":
+      direction = "up";
+      break;
+    case "ArrowDown":
+    case "s":
+      direction = "down";
+      break;
+    case "ArrowLeft":
+    case "a":
+      direction = "left";
+      break;
+    case "ArrowRight":
+    case "d":
+      direction = "right";
+      break;
+  }
+});
 
 function moveSnake() {
   let head = { x: snake[0].x, y: snake[0].y };
@@ -82,8 +103,10 @@ function gameLoop() {
   moveSnake();
 
   drawSnake();
-  
+
   drawFood();
+
+  setTimeout(gameLoop, gameSpeed);
 }
 
 gameLoop();
