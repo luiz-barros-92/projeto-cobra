@@ -20,8 +20,8 @@ let snake = [
 let direction = "right";
 
 let food = {
-  x: Math.floor (Math.random() * (canvasWidth / blockSize)) * blockSize,
-  y: Math.floor (Math.random() * (canvasHeight / blockSize)) * blockSize
+  x: Math.floor (Math.random() * (canvasWidth / blockSize - 2)) * blockSize + blockSize,
+  y: Math.floor (Math.random() * (canvasHeight / blockSize - 2)) * blockSize + blockSize
 }
 
 let score = 0;
