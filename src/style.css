@@ -27,3 +27,18 @@ footer p, a {
 
 h1 {
     font-family: 'Times New Roman', Times, serif; }
+
+#pScore {    
+    margin-right: 150px;
+    font-size: 23px; }
+
+#score {
+    color: #850000;
+    font-weight: bold; }
+
+#arrows {
+    font-size: 35px; }
+
+#scoreControls {
+    display: flex;
+    align-items: center; }

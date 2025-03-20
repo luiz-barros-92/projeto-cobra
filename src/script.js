@@ -44,7 +44,7 @@ function foodEat() {
     food.y = Math.floor (Math.random() * (canvasHeight / blockSize - 2)) * blockSize + blockSize;
 
     score++;
-    console.log("Score: ", score);
+    document.getElementById('score').value = `${score}`;    
 
     return true;
   }
@@ -110,4 +110,3 @@ function gameLoop() {
 }
 
 gameLoop();
-
